@@ -18,7 +18,14 @@ const schema={'@context':'https://schema.org','@graph':[
 ]};
 const services=[['Sewer Line Repair','sewer-line-repair'],['Sewer Line Replacement','sewer-line-replacement'],['Trenchless Sewer Repair','trenchless-sewer-repair'],['Sewer Camera Inspection','sewer-camera-inspection'],['Tree Root Sewer Damage','tree-root-sewer-damage']];
 ---
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>{title}</title><meta name="description" content={p.intro}/><link rel="canonical" href={url}/><meta property="og:url" content={url}/><meta property="og:title" content={title}/>{isLp&&<meta name="robots" content="noindex, nofollow"/>}<link rel="stylesheet" href="/assets/site.css"/><script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script></head>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>{title}</title><meta name="description" content={p.intro}/><link rel="canonical" href={url}/><meta property="og:url" content={url}/><meta property="og:title" content={title}/>{isLp&&<meta name="robots" content="noindex, nofollow"/>}<link rel="stylesheet" href="/assets/site.css"/><script async src="https://www.googletagmanager.com/gtag/js?id=G-BNXBZSV8LD"></script>
+ <script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-BNXBZSV8LD");
+ </script>
+ <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="header"><div class="wrap nav"><a class="brand" href="/">{c.city} <i>Sewer Line</i> Pros</a>{!isLp&&<><button class="menu-button" data-menu-button aria-controls="site-nav" aria-expanded="false" type="button">Menu</button><nav class="navlinks" data-nav id="site-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/#services">Services</a><a href="/#how-it-works">How it works</a><a href="#contact">Contact</a><a class="btn" href={call}>{display||'Request a call'}</a></nav></>}{isLp&&<a class="btn" href={call}>{display||'Request a call'}</a>}</div></header>
 <main id="main"><section class="hero"><div class="wrap"><div><h1>{p.title}</h1><p>{p.intro}</p><div class="actions"><a class="btn" href={call} aria-label={'Call '+c.brand}>{display||'Request a call'}</a><a class="btn btn-outline" href={isLp?'#contact':'#services'}>{isLp?'Tell us what happened':'Explore services'}</a></div></div><div class="hero-art" aria-hidden="true"><div class="orbit"></div><div class="pipe"></div><div class="spark"></div></div></div></section>
 {p.slug==='lp'&&<section class="section"><div class="wrap grid">{content.pages.filter(x=>x.slug.startsWith('lp/')).map(x=><article class="card"><h2>{x.title}</h2><p>{x.intro}</p><a href={'/'+x.slug+'/'}>View landing page</a></article>)}</div></section>}
